@@ -3,7 +3,7 @@
 
 // WARNING:  This code doesn't deal with failure well.
 
-require_once 'HTTP/Request2.php';
+require_once 'vendor/autoload.php';
 
 //A really simple webpage that re-directs the user to the provided URL.
 //Useful for Oauth.

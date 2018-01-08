@@ -8,12 +8,11 @@ Copyright Arthur Moore 2018, BSD 2 clause license
 
 # Assumptions
 
-* The user has the HTTP_Request2 PHP module installed
 * Errors are very loud.  Though the response body is returned, the code also echoes the error code and message.
 * `getBetweenDates` uses Salesforce's [DateTime format](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm)
 * `getBetweenDates` returns all account sObject fields
 * `create` returns the created object on success, or an array containing the error code and message on failure
-* 'update` returns the updated object on success on success, or an array containing the error code and message on failure
+* `update` returns the updated object on success on success, or an array containing the error code and message on failure
 
 
 # Running the example
@@ -26,6 +25,13 @@ See the [REST Tutorial][1] for how to do so.
 Next, the index.php must be edited. Optionally unauthenticated_rest_test.php can also be edited.
 The variable `$_SESSION['client_id']` must be set to the app's client id.
 
+
+# Using composer
+
+This application requires the HTTP_Request2 PHP module.
+It can automatically install this module via composer.
+
+Simply run `composer install` from within the project directory.
 
 # Starting the server
 
