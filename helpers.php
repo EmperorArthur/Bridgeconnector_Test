@@ -11,13 +11,16 @@ function redirect_to_url($url){
     echo "<html><head></head><body><script>window.location='{$url}'</script><a href='{$url}'>Click here to follow redirect</a></body></html>";
 }
 
-function request(string $url, string $method = HTTP_Request2::METHOD_GET, string $data = '', array $header=array()){
+function request(string $url, string $method = HTTP_Request2::METHOD_GET, array $post_data = array(), array $header=array(), string $data =''){
     error_log('Sending request to : ' . $url);
 
     try {
         $request = new HTTP_Request2($url);
         $request->setHeader($header);
         $request->setMethod($method);
+        if( $method == HTTP_Request2::METHOD_POST ){
+            $request->addPostParameter($post_data);
+        }
         if( isset($data) and $data != '' ){
             $request->setBody($data);
         }

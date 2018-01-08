@@ -40,15 +40,15 @@ class Salesforce_CRUD implements CRUD {
     }
 
     private function salesforce_get(string $api_url){
-        return json_decode( request($this->instance_url . $api_url, HTTP_Request2::METHOD_GET, '', array('Authorization' => "Bearer {$this->access_token}") ) );
+        return json_decode( request($this->instance_url . $api_url, HTTP_Request2::METHOD_GET, array(), array('Authorization' => "Bearer {$this->access_token}") ) );
     }
 
     function salesforce_put($api_url, $data){
-        return json_decode( request($this->instance_url . $api_url, HTTP_Request2::METHOD_POST, $data, array('Authorization' => "Bearer {$this->access_token}", 'Content-Type' => 'application/json') ) );
+        return json_decode( request($this->instance_url . $api_url, HTTP_Request2::METHOD_POST, array(), array('Authorization' => "Bearer {$this->access_token}", 'Content-Type' => 'application/json'), $data ) );
     }
 
     function salesforce_patch($api_url, $data){
-        return json_decode( request($this->instance_url . $api_url, 'PATCH', $data, array('Authorization' => "Bearer {$this->access_token}", 'Content-Type' => 'application/json') ) );
+        return json_decode( request($this->instance_url . $api_url, 'PATCH', array(), array('Authorization' => "Bearer {$this->access_token}", 'Content-Type' => 'application/json'), $data ) );
     }
 
 

@@ -11,6 +11,6 @@ $oath_data = array(
     'redirect_uri' => 'http://localhost:8080/oath_callback.html'
     );
 
-echo request($login_url, True, $oath_data);
+echo request($login_url, HTTP_Request2::METHOD_POST, $oath_data);
 
 ?>
